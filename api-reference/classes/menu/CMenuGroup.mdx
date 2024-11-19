@@ -1,0 +1,336 @@
+---
+title: 'CMenuGroup'
+description: 'CMenuGroup metatable for managing menu groups and widgets'
+icon: 'folder'
+mode: "wide"
+---
+
+## Methods
+
+### :Name()
+
+<ParamField path="returns" type="string">
+  Returns the name of the group.
+</ParamField>
+
+### :Parent()
+
+<ParamField path="returns" type="CThirdTab">
+  Returns the parent of the group.
+</ParamField>
+
+### :Type()
+
+<ParamField path="returns" type="Enum.WidgetType">
+  Returns the widget type of the group.
+</ParamField>
+
+### :Open()
+
+<ParamField path="returns" type="nil">
+  Opens the parent tabs and expands the group.
+</ParamField>
+
+### :Find(widgetName: `string`)
+
+<ParamField path="widgetName" type="string" required="true">
+  The name of the widget to find.
+</ParamField>
+
+<ParamField path="returns" type="CMenuSwitch | CMenuBind | CMenuSliderFloat | CMenuSliderInt | CMenuColorPicker | CMenuComboBox | CMenuButton | CMenuMultiComboBox | CMenuMultiSelect | CMenuInputBox | CMenuLabel | nil">
+  Finds a widget in the group by its name.
+</ParamField>
+
+### :Switch(switchName: `string`, defaultValue [?]: `boolean`, imageIcon [?]: `string`): `CMenuSwitch`
+
+Creates a new switch widget.
+
+<ParamField path="switchName" type="string" required="true">
+  The name of the switch.
+</ParamField>
+
+<ParamField path="defaultValue" type="boolean" default="false">
+  Default value of the switch.
+</ParamField>
+
+<ParamField path="imageIcon" type="string" default="">
+  Path to an image or Unicode representation of the icon. Refer to [Font Awesome icons](https://fontawesome.com/icons) for available options.
+</ParamField>
+
+### :Bind(bindName: `string`, defaultValue [?]: `Enum.ButtonCode`, imageIcon [?]: `string`): `CMenuBind`
+
+Creates a new bind widget.
+
+<ParamField path="bindName" type="string" required="true">
+  The name of the bind.
+</ParamField>
+
+<ParamField path="defaultValue" type="Enum.ButtonCode" default="Enum.ButtonCode.BUTTON_CODE_INVALID">
+  Default button code.
+</ParamField>
+
+<ParamField path="imageIcon" type="string" default="">
+  Path to an image or Unicode representation of the icon. Refer to [Font Awesome icons](https://fontawesome.com/icons) for available options.
+</ParamField>
+
+### :Slider(sliderName: `string`, minValue: `integer`, maxValue: `integer`, defaultValue: `integer`, format [?]: `string|function`): `CMenuSliderInt`
+
+Creates a new integer slider widget.
+
+<ParamField path="sliderName" type="string" required="true">
+  The name of the slider.
+</ParamField>
+
+<ParamField path="minValue" type="integer" required="true">
+  Minimum value of the slider.
+</ParamField>
+
+<ParamField path="maxValue" type="integer" required="true">
+  Maximum value of the slider.
+</ParamField>
+
+<ParamField path="defaultValue" type="integer" required="true">
+  Default value of the slider.
+</ParamField>
+
+<ParamField path="format" type="string|function" default="%d">
+  Format string or function for the slider value.
+</ParamField>
+
+**Example:**
+```lua
+group:Slider("slider", 0, 100, 50, "%d")  -- Creates an integer slider
+```
+
+### :Slider(sliderName: `string`, minValue: `number`, maxValue: `number`, defaultValue: `number`, format [?]: `string|function`): `CMenuSliderFloat`
+
+Creates a new float slider widget.
+
+<ParamField path="sliderName" type="string" required="true">
+  The name of the slider.
+</ParamField>
+
+<ParamField path="minValue" type="number" required="true">
+  Minimum value of the slider.
+</ParamField>
+
+<ParamField path="maxValue" type="number" required="true">
+  Maximum value of the slider.
+</ParamField>
+
+<ParamField path="defaultValue" type="number" required="true">
+  Default value of the slider.
+</ParamField>
+
+<ParamField path="format" type="string|function" default="%f">
+  Format string or function for the slider value.
+</ParamField>
+
+**Example:**
+```lua
+group:Slider("slider", 0.0, 1.0, 0.5, "%.2f")  -- Creates a float slider
+```
+
+### :ColorPicker(colorPickerName: `string`, color: `Color`, imageIcon [?]: `string`): `CMenuColorPicker`
+
+Creates a new color picker widget.
+
+<ParamField path="colorPickerName" type="string" required="true">
+  The name of the color picker.
+</ParamField>
+
+<ParamField path="color" type="Color" required="true">
+  The default color.
+</ParamField>
+
+<ParamField path="imageIcon" type="string" default="">
+  Path to an image or Unicode representation of the icon. Refer to [Font Awesome icons](https://fontawesome.com/icons) for available options.
+</ParamField>
+
+### :Button(buttonName: `string`, callback: `function`, altStyle [?]: `boolean`): `CMenuButton`
+
+Creates a new button widget.
+
+<ParamField path="buttonName" type="string" required="true">
+  The name of the button.
+</ParamField>
+
+<ParamField path="callback" type="function" required="true">
+  Function to call on button click (`func(this: CMenuButton): nil`).
+</ParamField>
+
+<ParamField path="altStyle" type="boolean" default="false">
+  Use alternative button style.
+</ParamField>
+
+**Example:**
+```lua
+group:Button("button", function(this)
+    Log.Write("Button '" .. this:Name() .. "' has been clicked.")
+end)
+```
+
+### :Combo(comboName: `string`, items: `string[]`, defaultValue [?]: `integer`): `CMenuComboBox`
+
+Creates a new combo box widget.
+
+<ParamField path="comboName" type="string" required="true">
+  The name of the combo box.
+</ParamField>
+
+<ParamField path="items" type="string[]" required="true">
+  List of items.
+</ParamField>
+
+<ParamField path="defaultValue" type="integer" default="0">
+  Index of the default item (starts from 0).
+</ParamField>
+
+### :MultiCombo(multiComboName: `string`, items: `string[]`, enabledItems: `string[]`): `CMenuMultiComboBox`
+
+Creates a new multi-combo box widget.
+
+<ParamField path="multiComboName" type="string" required="true">
+  The name of the multi-combo.
+</ParamField>
+
+<ParamField path="items" type="string[]" required="true">
+  List of items.
+</ParamField>
+
+<ParamField path="enabledItems" type="string[]" required="true">
+  List of enabled items.
+</ParamField>
+
+**Example:**
+```lua
+group:MultiCombo("multiCombo", { "item1", "item2", "item3" }, { "item1", "item3" })
+```
+
+### :MultiSelect(multiSelectName: `string`, items: `{nameId: string, imagePath: string, isEnabled: boolean}[]`, expanded [?]: `boolean`): `CMenuMultiSelect`
+
+Creates a new multi-select widget.
+
+<ParamField path="multiSelectName" type="string" required="true">
+  The name of the multi-select.
+</ParamField>
+
+<ParamField path="items" type="{nameId: string, imagePath: string, isEnabled: boolean}[]" required="true">
+  List of items with properties.
+</ParamField>
+
+<ParamField path="expanded" type="boolean" default="false">
+  Set to `true` to create the widget in an expanded state.
+</ParamField>
+
+**Example:**
+```lua
+group:MultiSelect("multiSelect", {
+    { "1", "panorama/images/heroes/icons/npc_dota_hero_antimage_png.vtex_c", false },
+    { "2", "panorama/images/heroes/icons/npc_dota_hero_antimage_png.vtex_c", false },
+}, true)
+```
+
+### :Input(inputName: `string`, defaultValue: `string`, imageIcon [?]: `string`): `CMenuInputBox`
+
+Creates a new input box widget.
+
+<ParamField path="inputName" type="string" required="true">
+  The name of the input box.
+</ParamField>
+
+<ParamField path="defaultValue" type="string" required="true">
+  The default value of the input.
+</ParamField>
+
+<ParamField path="imageIcon" type="string" default="">
+  Path to an image or Unicode representation of the icon. Refer to [Font Awesome icons](https://fontawesome.com/icons) for available options.
+</ParamField> 
+
+### :Label(labelText: `string`, imageIcon [?]: `string`): `CMenuLabel`
+
+Creates a new label widget.
+
+<ParamField path="labelText" type="string" required="true">
+  The text of the label.
+</ParamField>
+
+<ParamField path="imageIcon" type="string" default="">
+  Path to an image or Unicode representation of the icon. Refer to [Font Awesome icons](https://fontawesome.com/icons) for available options.
+</ParamField> 
+
+### :Disabled(value: `boolean`): `nil`
+
+<ParamField path="value" type="boolean" required="true">
+  Gets or sets the group's disabled state depending on the argument.
+</ParamField>
+
+**Example:**
+```lua
+-- setter
+group:Disabled(false)
+```
+
+### :Disabled(): `boolean`
+
+<ParamField path="returns" type="boolean">
+  Returns the group's current disabled state.
+</ParamField>
+
+**Example:**
+```lua
+-- getter
+local isDisabled = group:Disabled()
+```
+
+### :Visible(value: `boolean`): `nil`
+
+Gets or sets the group's visible state depending on the argument.
+
+<ParamField path="value" type="boolean" required="true">
+  The visibility state to set.
+</ParamField>
+
+**Example:**
+```lua
+-- setter
+group:Visible(false)
+```
+
+### :Visible(): `boolean`
+
+<ParamField path="returns" type="boolean">
+  Gets the group's visible state.
+</ParamField>
+
+**Example:**
+```lua
+-- getter
+local isVisible = group:Visible()
+```
+
+### :SearchHidden(value: `boolean`): `nil`
+
+Gets or sets the group's search state depending on the argument.
+
+<ParamField path="value" type="boolean" required="true">
+  The search state to set.
+</ParamField>
+
+**Example:**
+```lua
+-- setter
+group:SearchHidden(false)
+```
+
+### :SearchHidden(): `boolean`
+
+<ParamField path="returns" type="boolean">
+  Gets the group's search state.
+</ParamField>
+
+**Example:**
+```lua
+-- getter
+local isSearchHidden = group:SearchHidden()
+```

@@ -1,0 +1,92 @@
+---
+title: 'CThirdTab'
+description: 'CThirdTab metatable for managing tertiary tabs'
+icon: 'folder-open'
+mode: "wide"
+---
+
+## Methods
+
+### :Name(): `string`
+
+Returns the name of the tab.
+
+<ParamField path="returns" type="string">
+  The name of the tab.
+</ParamField>
+
+### :Parent(): `CSecondTab`
+
+Returns the parent of the tab.
+
+<ParamField path="returns" type="CSecondTab">
+  The parent of the tab.
+</ParamField>
+
+### :Type(): `Enum.WidgetType`
+
+Returns the widget type of the tab.
+
+<ParamField path="returns" type="Enum.WidgetType">
+  The widget type of the tab.
+</ParamField>
+
+### :Open(): `nil`
+
+Opens the parent tabs, expanding the section if necessary.
+
+<ParamField path="returns" type="nil">
+  The operation to open and expand the tab.
+</ParamField>
+
+### :Create(groupName: `string`, side [?]: `Enum.GroupSide`): `CMenuGroup`
+
+Creates a new `CMenuGroup`.
+
+<ParamField path="groupName" type="string" required="true">
+  The name of the new group.
+</ParamField>
+
+<ParamField path="side" type="Enum.GroupSide" default="Enum.GroupSide.Default">
+  Optional side.
+</ParamField>
+
+### :Find(groupName: `string`): `CMenuGroup | nil`
+
+Finds an existing `CMenuGroup` by its name.
+
+<ParamField path="groupName" type="string" required="true">
+  The name of the group to find.
+</ParamField>
+
+<ParamField path="returns" type="CMenuGroup | nil">
+  The group found or `nil` if it does not exist.
+</ParamField>
+
+### :Image(imagePath: `string`, offset [?]: `Vec2`): `nil`
+
+Sets the image for the tab.
+
+<ParamField path="imagePath" type="string" required="true">
+  The path to the image.
+</ParamField>
+
+<ParamField path="offset" type="Vec2" default="{0.0, 0.0}">
+  Optional image offset.
+</ParamField>
+
+### :Icon(icon: `string`, offset [?]: `Vec2`): `nil`
+
+Sets the icon for the tab.
+
+<ParamField path="icon" type="string" required="true">
+  The Unicode representation of the icon. Refer to [Font Awesome icons](https://fontawesome.com/icons) for available options.
+</ParamField>
+
+<ParamField path="offset" type="Vec2" default="{0.0, 0.0}">
+  Optional icon offset.
+</ParamField>
+
+**Example:**  
+```lua
+tab:Icon("\f007")

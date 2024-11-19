@@ -1,0 +1,88 @@
+---
+title: 'CSecondTab'
+description: 'CSecondTab metatable for managing secondary tabs'
+icon: 'list'
+mode: "wide"
+---
+
+## Methods
+
+### :Name(): `string`
+
+Returns the name of the tab.
+
+<ParamField path="returns" type="string">
+  The name of the tab.
+</ParamField>
+
+### :Parent(): `CTabSection`
+
+Returns the parent of the tab.
+
+<ParamField path="returns" type="CTabSection">
+  The parent of the tab.
+</ParamField>
+
+### :Type(): `Enum.WidgetType`
+
+Returns the widget type of the tab.
+
+<ParamField path="returns" type="Enum.WidgetType">
+  The widget type of the tab.
+</ParamField>
+
+### :Open(): `nil`
+
+Opens the parent tabs, expanding the section if necessary.
+
+<ParamField path="returns" type="nil">
+  The operation to open and expand the tab.
+</ParamField>
+
+### :Create(tabName: `string`): `CThirdTab`
+
+Creates a new `CThirdTab`.
+
+<ParamField path="tabName" type="string" required="true">
+  The name of the new tab.
+</ParamField>
+
+### :Find(tabName: `string`): `CThirdTab | nil`
+
+Finds an existing `CThirdTab` by its name.
+
+<ParamField path="tabName" type="string" required="true">
+  The name of the tab to find.
+</ParamField>
+
+<ParamField path="returns" type="CThirdTab | nil">
+  The tab found or `nil` if it does not exist.
+</ParamField>
+
+### :Image(imagePath: `string`, offset [?]: `Vec2`): `nil`
+
+Sets the image for the tab.
+
+<ParamField path="imagePath" type="string" required="true">
+  The path to the image.
+</ParamField>
+
+<ParamField path="offset" type="Vec2" default="{0.0, 0.0}">
+  Optional image offset.
+</ParamField>
+
+### :Icon(icon: `string`, offset [?]: `Vec2`): `nil`
+
+Sets the icon for the tab.
+
+<ParamField path="icon" type="string" required="true">
+  The Unicode representation of the icon. Refer to [Font Awesome icons](https://fontawesome.com/icons) for available options.
+</ParamField>
+
+<ParamField path="offset" type="Vec2" default="{0.0, 0.0}">
+  Optional icon offset.
+</ParamField>
+
+**Example:**  
+```lua
+tab:Icon("\f007")

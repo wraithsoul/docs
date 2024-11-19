@@ -1,0 +1,60 @@
+---
+title: 'CTabSection'
+description: 'CTabSection metatable for managing tab sections'
+icon: 'section'
+mode: "wide"
+---
+
+## Methods
+
+### :Name(): `string`
+
+Returns the name of the tab section.
+
+<ParamField path="returns" type="string">
+  The name of the tab section.
+</ParamField>
+
+### :Parent(): `CFirstTab`
+
+Returns the parent tab of the current tab section.
+
+<ParamField path="returns" type="CFirstTab">
+  The parent tab of the current tab section.
+</ParamField>
+
+### :Type(): `Enum.WidgetType`
+
+Returns the widget type of the tab section.
+
+<ParamField path="returns" type="Enum.WidgetType">
+  The widget type of the tab section.
+</ParamField>
+
+### :Open(): `nil`
+
+Opens the parent tabs, expanding the section if necessary.
+
+<ParamField path="returns" type="nil">
+  The operation to open and expand the tab section.
+</ParamField>
+
+### :Create(sectionName: `string`): `CSecondTab`
+
+Creates a new `CSecondTab`.
+
+<ParamField path="sectionName" type="string" required="true">
+  The name of the new tab section.
+</ParamField>
+
+### :Find(sectionName: `string`): `CSecondTab | nil`
+
+Finds an existing `CSecondTab` by its name.
+
+<ParamField path="sectionName" type="string" required="true">
+  The name of the tab section to find.
+</ParamField>
+
+<ParamField path="returns" type="CSecondTab | nil">
+  The tab section found or `nil` if it does not exist.
+</ParamField>

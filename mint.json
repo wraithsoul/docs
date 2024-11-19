@@ -1,51 +1,43 @@
 {
   "$schema": "https://mintlify.com/schema.json",
-  "name": "Starter Kit",
+  "name": "Umbrella",
   "logo": {
-    "dark": "/logo/dark.svg",
+    "dark": "/logo/light.svg",
     "light": "/logo/light.svg"
   },
   "favicon": "/favicon.svg",
   "colors": {
-    "primary": "#0D9373",
-    "light": "#07C983",
-    "dark": "#0D9373",
+    "primary": "#CE3535",
+    "light": "#CE3535",
+    "dark": "#CE3535",
+    "background": {
+      "dark": "#0C0C0F"
+    },
     "anchors": {
-      "from": "#0D9373",
-      "to": "#07C983"
+      "from": "#CE3535",
+      "to": "#CE3535"
     }
   },
   "topbarLinks": [
     {
       "name": "Support",
-      "url": "mailto:hi@mintlify.com"
+      "url": "https://t.me/supumbrella"
     }
   ],
   "topbarCtaButton": {
-    "name": "Dashboard",
-    "url": "https://dashboard.mintlify.com"
+    "name": "Website",
+    "url": "https://uc.zone"
   },
-  "tabs": [
-    {
-      "name": "API Reference",
-      "url": "api-reference"
-    }
-  ],
   "anchors": [
     {
-      "name": "Documentation",
-      "icon": "book-open-cover",
-      "url": "https://mintlify.com/docs"
-    },
-    {
       "name": "Community",
-      "icon": "slack",
-      "url": "https://mintlify.com/community"
+      "icon": "discord",
+      "url": "https://discord.gg/3kwN9vnEn5"
     },
     {
       "name": "Blog",
-      "icon": "newspaper",
-      "url": "https://mintlify.com/blog"
+      "icon": "telegram",
+      "url": "https://t.me/live_soft"
     }
   ],
   "navigation": [
@@ -58,30 +50,21 @@
       ]
     },
     {
-      "group": "Essentials",
+      "group": "API Reference",
       "pages": [
-        "essentials/markdown",
-        "essentials/code",
-        "essentials/images",
-        "essentials/settings",
-        "essentials/navigation",
-        "essentials/reusable-snippets"
+        "api-reference/classes/color",
+        {
+          "group": "Menu",
+          "pages": [
+            "api-reference/classes/menu/CTabSection",
+            "api-reference/classes/menu/CFirstTab",
+            "api-reference/classes/menu/CSecondTab",
+            "api-reference/classes/menu/CThirdTab",
+            "api-reference/classes/menu/CMenuGroup"
+          ]
+        }
       ]
-    },
-    {
-      "group": "API Documentation",
-      "pages": [
-        "api-reference/introduction"
-      ]
-    },
-    {
-      "group": "Endpoint Examples",
-      "pages": [
-        "api-reference/endpoint/get",
-        "api-reference/endpoint/create",
-        "api-reference/endpoint/delete"
-      ]
-    }
+    }    
   ],
   "footerSocials": {
     "x": "https://x.com/mintlify",

@@ -1,0 +1,182 @@
+---
+title: 'Color'
+description: 'Color metatable for handling RGBA and color manipulations'
+icon: 'palette'
+mode: "wide"
+---
+
+## Fields
+
+<ParamField path="r" type="number">
+  Red component of the color.
+</ParamField>
+
+<ParamField path="g" type="number">
+  Green component of the color.
+</ParamField>
+
+<ParamField path="b" type="number">
+  Blue component of the color.
+</ParamField>
+
+<ParamField path="a" type="number">
+  Alpha component of the color.
+</ParamField>
+
+## Methods
+
+### Color(r [?]: `number`, g [?]: `number`, b [?]: `number`, a [?]: `number`): `Color`
+
+Creates a new color with RGBA values.
+
+<ParamField path="r" type="number" default="255">
+  Red value (default: 255).
+</ParamField>
+
+<ParamField path="g" type="number" default="255">
+  Green value (default: 255).
+</ParamField>
+
+<ParamField path="b" type="number" default="255">
+  Blue value (default: 255).
+</ParamField>
+
+<ParamField path="a" type="number" default="255">
+  Alpha value (default: 255).
+</ParamField>
+
+### Color(hex: `string`): `Color`
+
+Creates a new color from a hexadecimal string.
+
+<ParamField path="hex" type="string" required="true">
+  Hexadecimal string without the `#` symbol.
+</ParamField>
+
+### :AsFraction(r: `number`, g: `number`, b: `number`, a: `number`): `Color`
+
+Sets the color using fractional values (0.0–1.0).
+
+<ParamField path="r" type="number" required="true">
+  New red fraction (0.0–1.0).
+</ParamField>
+
+<ParamField path="g" type="number" required="true">
+  New green fraction (0.0–1.0).
+</ParamField>
+
+<ParamField path="b" type="number" required="true">
+  New blue fraction (0.0–1.0).
+</ParamField>
+
+<ParamField path="a" type="number" required="true">
+  New alpha fraction (0.0–1.0).
+</ParamField>
+
+### :AsInt(value: `number`): `Color`
+
+Sets the color using a 32-bit integer value.
+
+<ParamField path="value" type="number" required="true">
+  Integer representation of the color.
+</ParamField>
+
+### :AsHsv(h: `number`, s: `number`, v: `number`, a: `number`): `Color`
+
+Sets the color using HSV values.
+
+<ParamField path="h" type="number" required="true">
+  Hue (0.0–1.0).
+</ParamField>
+
+<ParamField path="s" type="number" required="true">
+  Saturation (0.0–1.0).
+</ParamField>
+
+<ParamField path="v" type="number" required="true">
+  Value (0.0–1.0).
+</ParamField>
+
+<ParamField path="a" type="number" required="true">
+  Alpha (0.0–1.0).
+</ParamField>
+
+### :AsHsl(h: `number`, s: `number`, l: `number`, a: `number`): `Color`
+
+Sets the color using HSL values.
+
+<ParamField path="h" type="number" required="true">
+  Hue (0.0–1.0).
+</ParamField>
+
+<ParamField path="s" type="number" required="true">
+  Saturation (0.0–1.0).
+</ParamField>
+
+<ParamField path="l" type="number" required="true">
+  Lightness (0.0–1.0).
+</ParamField>
+
+<ParamField path="a" type="number" required="true">
+  Alpha (0.0–1.0).
+</ParamField>
+
+### :ToFraction(): `number`, `number`, `number`, `number`
+
+Returns the color's RGBA values as fractional values (0.0–1.0).
+
+### :ToInt(): `number`
+
+Returns the 32-bit integer representation of the color.
+
+### :ToHsv(): `number`, `number`, `number`
+
+Returns the HSV representation of the color.
+
+### :ToHsl(): `number`, `number`, `number`
+
+Returns the HSL representation of the color.
+
+### :ToHex(): `string`
+
+Returns the hexadecimal string representation of the color.
+
+### :Lerp(other: `Color`, weight: `number`): `Color`
+
+Linearly interpolates between this color and another.
+
+<ParamField path="other" type="Color" required="true">
+  The target color.
+</ParamField>
+
+<ParamField path="weight" type="number" required="true">
+  Weight between 0 and 1 (higher favors `other`).
+</ParamField>
+
+### :Grayscale(weight: `number`): `Color`
+
+Converts the color to grayscale.
+
+<ParamField path="weight" type="number" required="true">
+  Grayscale weight (0.0–1.0).
+</ParamField>
+
+### :AlphaModulate(alpha: `number`): `Color`
+
+Modulates the alpha value of the color.
+
+<ParamField path="alpha" type="number" required="true">
+  New alpha value (0.0–1.0).
+</ParamField>
+
+### :Clone(): `Color`
+
+Creates and returns a copy of the color.
+
+### :Unpack(): `number`, `number`, `number`, `number`
+
+Returns the RGBA values of the color. These can also be accessed directly via `r`, `g`, `b`, and `a`.
+
+### :__tostring(): `string`
+
+Returns the hexadecimal string representation of the color.
