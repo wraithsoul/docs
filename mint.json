@@ -31,11 +31,6 @@
   "anchors": [
     {
       "name": "Community",
-      "icon": "discord",
-      "url": "https://discord.gg/3kwN9vnEn5"
-    },
-    {
-      "name": "Blog",
       "icon": "telegram",
       "url": "https://t.me/live_soft"
     }
